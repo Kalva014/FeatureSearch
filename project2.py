@@ -1,6 +1,6 @@
 import random
 import copy
-
+# Row represents instance and column represents feature
 
 def leave_one_out_validation():
     return random.random() # Generates a random float between 0.0 and 1.0
@@ -92,17 +92,24 @@ def main():
     print("3 Bertie's Special Algorithm")
     user_choice = input()
 
-    #accuracy = 
-    #print("Using no features and \"random\" evaluation of ", accuracy)
+    print("Type the number of the dataset you want to use")
+    print("1 Small Test Dataset")  
+    print("2 Large Test Dataset")
+    file_choice = input()
+    if file_choice == '1':
+        file = open("small-test-dataset.txt", "r")
+    else:
+        file = open("Large-test-dataset.txt", "r")
+    print(file.read()) 
 
     if user_choice == '1':
         ForwardSelection(num_features)
-
     elif user_choice == '2':
         BackwardElimination(num_features)
     else:
         BertieSpecialAlgorithm(num_features)
-
+    
+    file.close() 
 
 if __name__ == "__main__":
     main()
